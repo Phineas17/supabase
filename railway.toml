@@ -1,0 +1,20 @@
+# Railway configuration for Supabase self-hosted deployment
+
+[build]
+# Use Docker Compose for Supabase
+dockerfile = "docker/docker-compose.yml"
+context = "."
+
+[deploy]
+# Start with docker-compose
+startCommand = "cd docker && docker-compose up"
+
+# Use Docker as the primary build method
+builder = "docker"
+
+# Health check
+[deploy.restartPolicy]
+maxRetries = 3
+
+# Environment variables are pulled from Railway service variables
+# No hardcoded secrets here - use Railway UI for sensitive data
