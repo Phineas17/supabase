@@ -1,0 +1,17 @@
+# Railway configuration for Supabase Minimal self-hosted deployment
+# Optimized for essential services: PostgreSQL, Kong, Auth, Functions, Storage, Analytics
+
+[build]
+builder = "docker"
+dockerfile = "Dockerfile"
+
+[deploy]
+startCommand = "docker-compose up"
+restartPolicy = "always"
+
+# Environment variables (configure via Railway UI)
+# Required:
+# - POSTGRES_PASSWORD
+# - JWT_SECRET
+# - ANON_KEY
+# - SERVICE_ROLE_KEY
